@@ -1,2 +1,14 @@
 pt-BR:
+  activerecord:
+    model: 
+      user: 'Usuário'
+
+
+
+
+    user:
+      name: 'Nome'
+      email: 'Email'
+      password: 'Senha'
+      password_confirmation: "Confirmar senha"
 
