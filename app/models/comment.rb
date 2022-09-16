@@ -3,4 +3,6 @@ class Comment < ApplicationRecord
 
   #relacionamento com o post
   belongs_to :post
+  
+
 end

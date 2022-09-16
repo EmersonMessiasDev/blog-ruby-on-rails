@@ -10,4 +10,6 @@ class Post < ApplicationRecord
     has_many :comments, dependent: :destroy
 
     friendly_id :title, use: :slugged
+
+
 end

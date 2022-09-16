@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :configure_permitted_parametrs, if: :devise_controller?
 
+
     layout :layout_by_resource
 
     private
@@ -14,4 +15,5 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parametrs
         devise_parameter_sanitizer.permit :sign_up, keys: %i[name username]
     end
+
 end
