@@ -61,3 +61,4 @@ gem 'rails-i18n'
 gem "devise", "~> 4.8"
 gem "devise-i18n", "~> 1.10"
 gem 'pry'
+gem 'friendly_id'
