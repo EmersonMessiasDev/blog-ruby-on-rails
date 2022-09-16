@@ -2,7 +2,15 @@ pt-BR:
   activerecord:
     model: 
       user: 'Usuário'
+      post: 'Post'
+      comment: 'Comentário'
 
+  attributes:
+    post:
+      title: 'Titulo'
+      body: 'Post'
+    comment:
+      body: 'Comentário'
 
 
 

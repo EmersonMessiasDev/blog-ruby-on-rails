@@ -19,8 +19,20 @@
           subtitulo
         </p>
     </div>
+    
+    <div class="text-end">
+      <%#? Logout  %>
+      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
 
     <div class="container">
+    <% flash.each do |type, message| %>
+
+      <div class="alert alert-<%= type == 'alert' ? 'danger' : 'success'%> alert-dismissible fade show" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
       <%= yield %>
     </div>
     
