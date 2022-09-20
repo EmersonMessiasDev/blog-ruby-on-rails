@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, expect: %i[index show]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts or /posts.json
@@ -11,7 +12,7 @@ class PostsController < ApplicationController
     @comments = @post.comments.order(created_at: :desc)
     @comment = Comment.new
   end
-
+                                                                                                                                                      
   # GET /posts/new
   def new
     @post = Post.new
