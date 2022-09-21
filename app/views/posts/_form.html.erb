@@ -4,6 +4,11 @@
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :author %>
+    <%= form.text_field :author, class: 'form-control' %>
+  </div>
+
 
   <div class="form-group">
     <%= form.label :body %>
@@ -11,5 +16,5 @@
   </div>
 
 
-    <%= form.submit class: 'btn btn-primary m-2', data: {desable_whith: 'Criando...'} %>
+    <%= form.submit class: 'btn btn-primary m-2', data: { desable_whith: 'Criando...'} %>
 <% end %>

@@ -1,22 +1,16 @@
 pt-BR:
   activerecord:
-    model: 
-      user: 'Usuário'
+    models:
       post: 'Post'
       comment: 'Comentário'
 
-  attributes:
-    post:
-      title: 'Titulo'
-      body: 'Post'
-    comment:
-      body: 'Comentário'
+    attributes:
+      post:
+        title: 'Titulo'
+        author: 'Autor'
+        body: 'Post'
+      comment:
+        author: 'Autor'
+        body: 'Comentário'
 
-
-
-    user:
-      name: 'Nome'
-      email: 'Email'
-      password: 'Senha'
-      password_confirmation: "Confirmar senha"
 

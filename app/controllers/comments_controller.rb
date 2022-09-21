@@ -1,13 +1,14 @@
 class CommentsController < ApplicationController
     def create
-        comment = Comment.create!(coments_params)
+        comment = Comment.create!(comments_params)
 
-        redirect_to comment.post, notice: 'O seu comentário foi enviado!'
+        redirect_to comment.post, notice: 'O seu comentario foi enviado'
+
     end
 
     private
 
-    def coments_params
+    def comments_params
         params.require(:comment).permit(:post_id, :author, :body)
     end
 end
