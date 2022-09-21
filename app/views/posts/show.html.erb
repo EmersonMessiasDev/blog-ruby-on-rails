@@ -24,21 +24,23 @@
     </h4>
   </div>
   
-  <div class="shadow-sm m-3 p-3 bg-light rounded">
-        
-      <%= form_with model: @comment, local: true do |form| %>
-          <%= form.hidden_field :post_id, value: @post.id%>
+<% if user_signed_in? %>
+      <div class="shadow-sm m-3 p-3 bg-light rounded">
+            
+          <%= form_with model: @comment, local: true do |form| %>
+              <%= form.hidden_field :post_id, value: @post.id%>
 
-          <div class="form-group mb-3">
-            <%= form.label :Comentário %>
-            <%= form.text_area :body, class: 'form-control', row: 2, required: true %>
-          </div>
+              <div class="form-group mb-3">
+                <%= form.label :Comentário %>
+                <%= form.text_area :body, class: 'form-control', row: 2, required: true %>
+              </div>
 
 
-            <%= form.submit 'Enviar', class: 'btn btn-primary', date: {disable_with: 'Enviando...'} %>
-      
-      <% end %>
-  </div>
+                <%= form.submit 'Enviar', class: 'btn btn-primary', date: {disable_with: 'Enviando...'} %>
+          
+          <% end %>
+      </div>
+<% end %>
 
   <% @comments.each do |comment| %>
       <div class="shadow-sm m-3 p-3 bg-light rounded">
