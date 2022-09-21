@@ -3,7 +3,7 @@
       <h1><%= @post.title %></h1>
 
       <p class="text-muted">
-        <strong> <%= @post.author %></strong>
+        <strong> <%= @post.user.email %></strong>
         - <%= l @post.created_at, format: :long %>
       </p>
   </div>

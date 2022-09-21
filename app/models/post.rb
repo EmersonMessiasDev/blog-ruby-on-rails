@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
+    belongs_to :user
     # validaçoes de campos
-    validates :title, :author, :body, presence:true
+    validates :title, :body, presence:true
 
 
-    has_many :comments
+    has_many :comments, dependent: :destroy
 end

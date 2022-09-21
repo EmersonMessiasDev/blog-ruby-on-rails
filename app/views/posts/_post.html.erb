@@ -4,7 +4,7 @@
 
         <div class="text-muted mb-2">
                                         <%#? pucxa data e horario resumido %>
-            <em>Por <%= post.author%> (<%= l post.created_at, format: :short %>)</em>
+            <em>Por <%= post.user.email %> (<%= l post.created_at, format: :short %>)</em>
         </div>
             <%#? exibindo o post e delimitando quantidade de caracteres %>
         <p><%= post.body.truncate(200) %></p>
