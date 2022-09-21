@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
 
   #relacionamento com o post
   belongs_to :post
+  belongs_to :user
 
   # belongs_to :created_by, class_name: "User"
 end

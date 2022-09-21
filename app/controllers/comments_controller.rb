@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     def create
-        comment = Comment.create!(comments_params)
+        comment = Comment.create!(comments_params.to_h.merge!({ user_id: current_user.id}))
 
         redirect_to comment.post, notice: 'O seu comentario foi enviado'
 
