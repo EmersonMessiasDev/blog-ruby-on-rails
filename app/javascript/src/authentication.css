@@ -3,6 +3,7 @@
 @import "./reset.css";
 @import "./variables.css";
 @import "./form.css";
+@import "./styles.css";
 
 body {
   background-color: var(--color-white-bis);
@@ -56,3 +57,5 @@ main {
   font-weight: bold;
   font-size: 14px;
 }
+
+

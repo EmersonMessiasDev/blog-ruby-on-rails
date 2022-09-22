@@ -1,21 +1,27 @@
-<div class="card bg-light mb-3">
-    <div class="card-body">
-        <h4><%= link_to post.title, post , class: 'link' %></h4>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title"><%= link_to post.title, post , class: 'link' %></h2>
+                </a>
+                <em class="post-meta">
+                    Postador por
+                    <strong><%= link_to post.user.email, post %></strong>
+                    em (<%= l post.created_at, format: :short %>)
+                </em>
 
-        <div class="text-muted mb-2">
-                                        <%#? pucxa data e horario resumido %>
-            <em>Por <%= post.user.email %> (<%= l post.created_at, format: :short %>)</em>
+                <p><%= link_to post.body.truncate(200), post, class: 'link' %></p>
+
+                <p class="text-muted"><%= pluralize(post.comments.count, 'Comnetário') %> </p>
+
+            <% if user_signed_in? %>
+                <%= link_to "Editar", edit_post_path(post), class:'link-primary' %> /
+                <%= link_to "Apagar", post, method: :delete, class:'link-danger', data: { confirm: 'Você tem certeza?'} %>
+            <% end %>
+            </div>
+            <hr class="my-4" />
         </div>
-            <%#? exibindo o post e delimitando quantidade de caracteres %>
-        <p><%= post.body.truncate(200) %></p>
-        
-        <p class="text-muted"><%= pluralize(post.comments.count, 'Comnetário') %> </p>
-
-        <%= link_to "Ler artigo", post, class:'btn btn-primary' %>
-        <% if user_signed_in? %>
-            <%= link_to "Editar", edit_post_path(post), class:'btn btn-secondary' %>
-            <%= link_to "Apagar", post, method: :delete, class:'btn btn-danger', data: { confirm: 'Você tem certeza?'} %>
-        <% end %>
-
     </div>
 </div>

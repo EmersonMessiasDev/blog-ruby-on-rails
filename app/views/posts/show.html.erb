@@ -1,3 +1,71 @@
+<% if device == "mobile" %>
+  <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+              <!-- Post preview-->
+              <div class="post-preview">
+                  <a href="post.html">
+                      <h2 class="post-title"><%= @post.title  %></h2>
+                  </a>
+                  <em class="post-meta">
+                      Postador por
+                      <strong><%= @post.user.email %></strong>
+                      em (<%= l @post.created_at, format: :short %>)
+                  </em>
+
+                  <p><%= @post.body.gsub("\n", "<br>").html_safe %></p>
+              </div>
+              <hr class="my-4" />
+          </div>
+      </div>
+  </div>
+  <% if user_signed_in? %>
+      <div class="shadow-sm m-3 p-3 bg-light rounded">
+            
+          <%= form_with model: @comment, local: true do |form| %>
+              <%= form.hidden_field :post_id, value: @post.id%>
+
+              <div class="form-group mb-3">
+                <%= form.label :Comentário %>
+                <%= form.text_area :body, class: 'form-control', row: 2, required: true %>
+              </div>
+
+              <div class="text-center">
+                <%= form.submit 'Enviar', class: 'btn btn-primary', date: {disable_with: 'Enviando...'} %>
+              </div>
+                
+          
+          <% end %>
+      </div>
+<% end %>
+
+  <% @comments.each do |comment| %>
+      <div class="shadow-sm m-3 p-3 bg-light rounded">
+        <div class="row">
+          
+          <div class="row text-center">
+            <strong><%= comment.user.email %></strong>
+
+          </div>
+          
+          <div class="row text-center">
+            <em  data-bs-toggle="tooltip" data-bs-placement="top" title="<%= l comment.created_at, format: :long %>"><%= time_ago_in_words comment.created_at %> atrás</em>
+          </div>
+        </div>
+
+        <hr>
+        <!--Sanitize evita de rodar scripts maliciosos-->
+        <div class="text-center">
+              <%= sanitize(comment.body.gsub("\n", "<br>")).html_safe %>
+        </div>
+        
+
+      </div>
+  <% end %>
+
+
+<% else %>
+
 <div class="shadow bg-light p-5 mb-4 rounded">
   <div class="text-center mb-5">
       <h1><%= @post.title %></h1>
@@ -64,6 +132,13 @@
   <% end %>
 
 </div>
+<% end %>
+
+
+
+
+
+
 
 
   
