@@ -80,4 +80,7 @@ Rails.application.configure do
   # letter_
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+
+  config.hosts << /[a-z0-9-.]+\.ngrok\.io/
 end
